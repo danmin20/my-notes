@@ -1,3 +1,3 @@
 # My Notes
 
-Offline-First Markdown Note Taking App built with Apollo
+Offline Markdown Note App made with GraphQL & Apollo
