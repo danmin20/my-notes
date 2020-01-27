@@ -31,7 +31,8 @@ const GlobalStyle = createGlobalStyle`
         background-color:transparent;
         resize:none;
         &::placeholder {
-            color: #E7E7E6;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #c5c5c5;
         }
         &:focus,
         &:active{

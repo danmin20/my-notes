@@ -1,5 +1,5 @@
 import React from "react";
-import MarkdownRenderer from "react-markdown-renderer";
+import Markdown from "react-markdown";
 import styled from "styled-components";
 import { Query } from "react-apollo";
 import { Link } from "react-router-dom";
@@ -29,22 +29,18 @@ export default class Note extends React.Component {
     } = this.props;
     return (
       <Query query={GET_NOTE} variables={{ id }}>
-        {({ data }) => {
-          console.log(data);
-          console.log(data.note);
-          return null;
-        }
-        // data.note ? (
-        //   <>
-        //     <TitleComponent>
-        //       <Title>{data.note && data.note.title}</Title>
-        //       <Link to={`/my-notes/edit/${data.note.id}`}>
-        //         <Button>Edit</Button>
-        //       </Link>
-        //     </TitleComponent>
-        //     <MarkdownRenderer markdown={data.note.content} />
-        //   </>
-        // ) : null
+        {({ data }) =>
+          data?.note ? (
+            <>
+              <TitleComponent>
+                <Title>{data?.note && data?.note?.title}</Title>
+                <Link to={`/my-notes/edit/${data?.note?.id}`}>
+                  <Button>Edit</Button>
+                </Link>
+              </TitleComponent>
+              <Markdown source={data?.note?.content} />
+            </>
+          ) : null
         }
       </Query>
     );
